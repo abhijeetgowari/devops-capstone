@@ -11,7 +11,7 @@ pipeline {
 
     stage('Build Docker Image') {
       steps {
-      sh 'docker build -t capstone-backend ./backend'      
+      sh 'docker build -t capstone-backend .'      
       echo "Build Docker Done"
       }
     }
