@@ -18,7 +18,8 @@ pipeline {
 
     stage('Deploy to K8s') {
       steps {
-      echo "Deploy done"
+         kubectl apply -f k8s/deployment.yaml        
+         echo "Deploy done"
       }
     }
   }
