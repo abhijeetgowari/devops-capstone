@@ -23,6 +23,8 @@ pipeline {
         sh 'kubectl get deployments'
         sh 'kubectl get pods -o wide'
          echo "Deploy done"
+        sh 'kubectl apply -f service.yaml'
+        sh 'kubectl get svc'
       }
     }
   }
