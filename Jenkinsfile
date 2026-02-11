@@ -11,19 +11,17 @@ pipeline {
 
     stage('Build Docker Image') {
       steps {
-      sh 'docker build -t capstone-backend .'      
-      echo "Build Docker Done"
+      sh 'docker build -t node-app-image:v1 .' 
+      sh 'docker run -d -p 5000:5000 node-app-image:v1'    
+        echo "Build Docker Done"
       }
     }
 
     stage('Deploy to K8s') {
       steps {
-        sh ' ' '
-        kubectl apply -f deployment.yaml
-        kubectl get deployments
-        kubectl get pods -o wide
-        
-        ' ' ' 
+        sh 'kubectl apply -f deployment.yaml'
+        sh 'kubectl get deployments'
+        sh 'kubectl get pods -o wide'
          echo "Deploy done"
       }
     }
