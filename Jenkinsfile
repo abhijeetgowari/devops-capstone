@@ -18,7 +18,12 @@ pipeline {
 
     stage('Deploy to K8s') {
       steps {
-        sh 'kubectl apply -f deployment.yaml'       
+        sh ' ' '
+        kubectl apply -f deployment.yaml
+        kubectl get deployments
+        kubectl get pods -o wide
+        
+        ' ' ' 
          echo "Deploy done"
       }
     }
