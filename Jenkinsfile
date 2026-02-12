@@ -20,6 +20,7 @@ pipeline {
     stage('Deploy to K8s') {
       steps {
         withKubeConfig([ 'minikube-config':'my-kubeconfig-id']){
+        sh 'kubectl get nodes'
         sh 'kubectl apply -f deployment.yaml'
         sh 'kubectl get deployments'
         sh 'kubectl get pods -o wide'
