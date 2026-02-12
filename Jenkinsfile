@@ -12,7 +12,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
       sh 'docker build -t node-app-image:v1 .' 
-      sh 'docker run -d -p 5051:5050 node-app-image:v1'    
+      sh 'docker run -d -p 5052:5050 node-app-image:v1'    
         echo "Build Docker Done"
       }
     }
