@@ -19,12 +19,14 @@ pipeline {
 
     stage('Deploy to K8s') {
       steps {
+        withKubeConfig([minikube-config:'my-kubeconfig-id']){
         sh 'kubectl apply -f deployment.yaml'
         sh 'kubectl get deployments'
         sh 'kubectl get pods -o wide'
          echo "Deploy done"
         sh 'kubectl apply -f service.yaml'
         sh 'kubectl get svc'
+      }
       }
     }
   }
